@@ -12,20 +12,20 @@ r = Role.find_by_name('developer')
 
 # FIXME
 jermille = User.new(:first_name => 'Jerel',
-                         :last_name => 'Miller',
-                         :email => 'jermille@mines.edu',
-                         :password => 'changeme',
-                         :password_confirmation => 'changeme',
-                         :role => r)
+                    :last_name => 'Miller',
+                    :email => 'jermille@mines.edu',
+                    :password => 'changeme',
+                    :password_confirmation => 'changeme',
+                    :role => r)
 jermille.save_without_session_maintenance
 
 # FIXME
 awesterm = User.new(:first_name => 'Alec',
-                         :last_name => 'Westerman',
-                         :email => 'awesterm@mines.edu',
-                         :password => 'changeme',
-                         :password_confirmation => 'changeme',
-                         :role => r)
+                    :last_name => 'Westerman',
+                    :email => 'awesterm@mines.edu',
+                    :password => 'changeme',
+                    :password_confirmation => 'changeme',
+                    :role => r)
 awesterm.save_without_session_maintenance
 
 yong = User.new(:first_name => 'Yong',
