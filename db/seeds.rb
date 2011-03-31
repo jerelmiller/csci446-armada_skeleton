@@ -11,22 +11,22 @@ Role.create!(:name => 'member', :description => 'A typical application user.')
 r = Role.find_by_name('developer')
 
 # FIXME
-team_member_1 = User.new(:first_name => 'YOUR_FIRST_NAME',
-                         :last_name => 'YOUR_LAST_NAME',
-                         :email => 'PARTNER1@mines.edu',
+jermille = User.new(:first_name => 'Jerel',
+                         :last_name => 'Miller',
+                         :email => 'jermille@mines.edu',
                          :password => 'changeme',
                          :password_confirmation => 'changeme',
                          :role => r)
-team_member_1.save_without_session_maintenance
+jermille.save_without_session_maintenance
 
 # FIXME
-team_member_2 = User.new(:first_name => 'YOUR_FIRST_NAME',
-                         :last_name => 'YOUR_LAST_NAME',
-                         :email => 'PARTNER2@mines.edu',
+awesterm = User.new(:first_name => 'Alec',
+                         :last_name => 'Westerman',
+                         :email => 'awesterm@mines.edu',
                          :password => 'changeme',
                          :password_confirmation => 'changeme',
                          :role => r)
-team_member_2.save_without_session_maintenance
+awesterm.save_without_session_maintenance
 
 yong = User.new(:first_name => 'Yong',
                 :last_name => 'Bakos',
