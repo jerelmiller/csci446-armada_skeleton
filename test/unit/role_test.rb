@@ -12,7 +12,7 @@ class RoleTest < ActiveSupport::TestCase
   end
   
   test "name should not have surrounding whitespace" do
-    r = Role.new(:name => ' can i haz role ')
+    r = Role.new(:name => 'can i haz role')
     assert_equal r.name, 'can i haz role'
   end
   
