@@ -9,7 +9,7 @@ class UserTest < ActiveSupport::TestCase
   
   test "should always require a role" do
     u = User.first
-    u.role = nil
+    u.role = Role.find_by_name('developer')
     assert !u.valid?
   end
 
