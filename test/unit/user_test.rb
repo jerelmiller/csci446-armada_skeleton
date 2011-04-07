@@ -4,7 +4,7 @@ class UserTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   test "should be rendered as full name when rendered as a string" do
     u = User.first
-    assert_equal u.first_name, u.first_name.to_s
+    assert_equal u.full_name, u.full_name.to_s
   end
   
   test "should always require a role" do

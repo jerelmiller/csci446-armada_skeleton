@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
   def is_admin?
     role_symbols.include?(:administrator) || role_symbols.include?(:developer)
   end
+  
+  def full_name
+    self.first_name + " " + self.last_name
+  end
 
   private
 
