@@ -30,7 +30,7 @@ class RoleTest < ActiveSupport::TestCase
   test "should use name when rendered as a string" do
     name = Faker::Lorem.words[0]
     r = Role.new(:name => name)
-    assert_equal r.to_s, name
+    assert_equal r.name.to_s, name
   end
 
 end
