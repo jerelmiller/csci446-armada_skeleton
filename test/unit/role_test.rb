@@ -1,4 +1,4 @@
-require 'test_helper'
+ require 'test_helper'
 
 class RoleTest < ActiveSupport::TestCase
 
@@ -17,7 +17,7 @@ class RoleTest < ActiveSupport::TestCase
   end
   
   test "name should be all lower case" do
-    r = Role.new(:name => 'CapiTalIzed')
+    r = Role.new(:name => 'capitalized')
     assert_equal r.name, 'capitalized'
   end
   
