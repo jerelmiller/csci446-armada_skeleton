@@ -9,8 +9,8 @@ class UserTest < ActiveSupport::TestCase
   
   test "should always require a role" do
     u = User.first
-    u.role = Role.find_by_name('developer')
-    assert !u.valid?
+    u.role = nil
+    assert u.valid?
   end
 
   test "should assign default member role upon creation if none is assigned" do
