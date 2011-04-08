@@ -1,4 +1,4 @@
- require 'test_helper'
+require 'test_helper'
 
 class RoleTest < ActiveSupport::TestCase
 
@@ -12,12 +12,12 @@ class RoleTest < ActiveSupport::TestCase
   end
   
   test "name should not have surrounding whitespace" do
-    r = Role.new(:name => 'can i haz role')
+    r = Role.new(:name => ' can i haz role ')
     assert_equal r.name, 'can i haz role'
   end
   
   test "name should be all lower case" do
-    r = Role.new(:name => 'capitalized')
+    r = Role.new(:name => 'CapiTalIzed')
     assert_equal r.name, 'capitalized'
   end
   
@@ -30,7 +30,7 @@ class RoleTest < ActiveSupport::TestCase
   test "should use name when rendered as a string" do
     name = Faker::Lorem.words[0]
     r = Role.new(:name => name)
-    assert_equal r.name.to_s, name
+    assert_equal r.to_s, name
   end
 
 end
