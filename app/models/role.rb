@@ -7,6 +7,10 @@ class Role < ActiveRecord::Base
 
   has_many :users
 
+  def to_S
+    self.name.to_s
+  end
+
 end
 
 
