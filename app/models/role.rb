@@ -11,6 +11,10 @@ class Role < ActiveRecord::Base
     self.name.downcase
   end
 
+  def to_S
+    self.name.to_s
+  end
+
 end
 
 
