@@ -11,11 +11,11 @@ class Role < ActiveRecord::Base
     self.name.to_s
   end
   
-  protected
+  def name=(new_name)
+    write_attribute(:name, new_name.strip.downcase)
+  end
   
-    def before_validation
-      self.name = name.downcase
-    end
+  
 
 end
 
