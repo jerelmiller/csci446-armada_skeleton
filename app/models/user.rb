@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   def role_symbols
     [role.name.downcase.to_sym]
   end
+  
+
 
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
