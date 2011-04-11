@@ -6,14 +6,16 @@ class Role < ActiveRecord::Base
   validates_uniqueness_of :name
 
   has_many :users
-  
-  def name
-    self.name.downcase
-  end
 
-  def to_S
+  def to_s
     self.name.to_s
   end
+  
+  protected
+  
+    def before_validation
+      self.name = name.downcase
+    end
 
 end
 
