@@ -7,9 +7,15 @@ class Role < ActiveRecord::Base
 
   has_many :users
 
-  def to_S
+  def to_s
     self.name.to_s
   end
+  
+  protected
+  
+    def before_validation
+      self.name = name.downcase
+    end
 
 end
 
