@@ -14,11 +14,13 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :roles
     admin.resources :users
+    admin.resources :gnomes
     admin.root :controller => 'admin', :action => 'index'
   end
 
   map.namespace :members do |members|
     members.resources :users, :only => [:show, :edit, :update]
+    members.resources :gnomes
     members.root :controller => 'members', :action => 'index'
   end
 
