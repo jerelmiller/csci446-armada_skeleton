@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
   def role_symbols
     [role.name.downcase.to_sym]
   end
+  
+#  def role=(def_role)
+#	 if def_role == nil
+#	   @role == 'member'
+#  end
 
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
