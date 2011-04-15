@@ -1,19 +1,18 @@
 class GnomesController < ApplicationController
-  # GET /gnomes
-  # GET /gnomes.xml
+
   def index
     @gnomes = Gnome.all
-
+    @num_gnomes = Gnome.count
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @gnomes }
     end
   end
 
-  # GET /gnomes/1
-  # GET /gnomes/1.xml
   def show
     @gnome = Gnome.find(params[:id])
+    
 
     respond_to do |format|
       format.html # show.html.erb
