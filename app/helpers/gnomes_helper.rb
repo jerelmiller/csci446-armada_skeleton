@@ -1,0 +1,2 @@
+module GnomesHelper
+end

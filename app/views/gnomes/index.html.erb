@@ -1,0 +1,28 @@
+<h1>Listing gnomes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Cost</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Description</th>
+  </tr>
+
+<% @gnomes.each do |gnome| %>
+  <tr>
+    <td><%=h gnome.name %></td>
+    <td><%=h gnome.cost %></td>
+    <td><%=h gnome.age %></td>
+    <td><%=h gnome.gender %></td>
+    <td><%=h gnome.description %></td>
+    <td><%= link_to 'Show', gnome %></td>
+    <td><%= link_to 'Edit', edit_gnome_path(gnome) %></td>
+    <td><%= link_to 'Destroy', gnome, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New gnome', new_gnome_path %>
