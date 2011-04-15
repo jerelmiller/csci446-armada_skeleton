@@ -1,15 +1,23 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  cost: 1
-  age: 1
-  gender: MyString
-  description: MyText
+  name: Clarince
+  cost: 15
+  age: 1000
+  gender: None
+  description: An incessantly bothersome but jolly busy body.
 
 two:
-  name: MyString
-  cost: 1
-  age: 1
-  gender: MyString
-  description: MyText
+  name: Sid
+  cost: 12
+  age: 5
+  gender: Male
+  description: Always appears to be languid, sits and mopes ever pensive but never annoying.
+
+three:
+  name: Herma
+  cost: 18
+  age: 18
+  gender: Female
+  description: Charming but high maintenance. 
+  
