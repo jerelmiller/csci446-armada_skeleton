@@ -4,10 +4,10 @@
 %h2
   = @role
   .action
-    = link_to image_tag('icon_small_larrow.png'), admin_roles_path
+    = link_to image_tag('icon_small_larrow.png', :border => 0), admin_roles_path
     = link_to 'back to list', admin_roles_path
   .action
-    = link_to image_tag('icon_small_edit.png'), edit_admin_role_path(@role)
+    = link_to image_tag('icon_small_edit.png', :border => 0), edit_admin_role_path(@role)
     = link_to 'edit', edit_admin_role_path(@role)
 
 %div[@role]

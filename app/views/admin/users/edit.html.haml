@@ -4,10 +4,10 @@
 %h2
   = "Editing #{@user}"
   .action
-    = link_to image_tag('icon_small_larrow.png'), admin_users_path
+    = link_to image_tag('icon_small_larrow.png', :border => 0), admin_users_path
     = link_to 'back to list', admin_users_path
   .action
-    = link_to image_tag('icon_small_delete.png'), admin_user_path(@user), :confirm => 'Are you sure?', :method => :delete
+    = link_to image_tag('icon_small_delete.png', :border => 0), admin_user_path(@user), :confirm => 'Are you sure?', :method => :delete
     = link_to 'delete', admin_user_path(@user), :confirm => 'Are you sure?', :method => :delete  
 
 = render :partial => "form", :locals => {:user => @user}
