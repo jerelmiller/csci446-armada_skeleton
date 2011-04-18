@@ -4,4 +4,8 @@ class Gnome < ActiveRecord::Base
   
   belongs_to :user
   
+  def self.most_recent
+    first(:order => 'created_at DESC')
+  end
+  
 end

@@ -1,7 +1,7 @@
 <h1>All Gnomes</h1>
 
 <div id="title">
-  <h4><%= pluralize(@num_gnomes, "gnome") %> as of date</h4>
+  <h4><%= pluralize(@num_gnomes, "gnome") %> as of <%= Gnome.most_recent.created_at.strftime("%b. %d, %Y.") %></h4>
 </div>
 
 
@@ -12,32 +12,24 @@
 </div>
 <br/>
 <br/>
-<br/>
-<div class="paginate">
-<%= will_paginate @gnomes %>
-</div>
 
+<div class="paginate">
+  <%= will_paginate @gnomes %>
+</div>
+<br/>
+<br/>
+<br/>
 <% if @num_gnomes > 0 %>
   <table>
-    <tr>
-      <th>Name</th>
-      <th>Cost</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Description</th>
-    </tr>
-
   <% @gnomes.each do |gnome| %>
     <tr>
-      <td><%=h gnome.name %></td>
-      <td><%=h gnome.cost %></td>
-      <td><%=h gnome.age %></td>
-      <td><%=h gnome.gender %></td>
-      <td><%=h gnome.description %></td>
-      <td><%= link_to 'Show', admin_gnome_path(gnome) %></td>
-    <% if current_user %>
-      <td><%= link_to 'Edit', edit_admin_gnome_path(gnome) %></td>
-      <td><%= link_to 'Destroy', gnome, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td>image</td>
+      <td class="middle-stuff"><%=h link_to "#{gnome.name}", gnome %> by <%=h gnome.user %> (<%=h gnome.cost %> ArmadaBucks) <br/>
+		<%=h gnome.description %></td>
+      <td><%= link_to (image_tag('/images/icon_small_show.png', :border => 0, :title => "Show #{gnome.name}")), admin_gnome_path(gnome) %></td>
+    <% if gnome.user == current_user %>
+      <td><%= link_to (image_tag('/images/icon_small_edit.png', :border => 0, :title => "Edit #{gnome.name}")), edit_admin_gnome_path(gnome) %></td>
+      <td><%= link_to (image_tag('/images/icon_small_delete.png', :border => 0, :title => "Delete #{gnome.name}")), admin_gnome_path(gnome), :confirm => 'Are you sure?', :method => :delete %></td>
     <% end %>
     </tr>
   <% end %>

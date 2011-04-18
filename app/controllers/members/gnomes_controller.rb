@@ -1,6 +1,6 @@
 class Members::GnomesController < Members::MemberController
 
-  GNOMES_PER_PAGE = 1
+  GNOMES_PER_PAGE = 5
 
   def index
     @gnomes = Gnome.paginate(:page => params[:page], :per_page => GNOMES_PER_PAGE, :order => 'created_at DESC')
@@ -42,7 +42,7 @@ class Members::GnomesController < Members::MemberController
   # POST /gnomes.xml
   def create
     @gnome = Gnome.new(params[:gnome])
-
+    @gnome.user = current_user
     respond_to do |format|
       if @gnome.save
         format.html { redirect_to(@gnome, :notice => 'Gnome was successfully created.') }
