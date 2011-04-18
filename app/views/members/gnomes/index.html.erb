@@ -1,27 +1,39 @@
 <h1>All Gnomes</h1>
 
 <div id="title">
-  <% if @num_gnomes == 0 %>
-	<h4><%= pluralize(@num_gnomes, "gnome") %></h4>
-  <% else %>
-    <h4><%= pluralize(@num_gnomes, "gnome") %> as of date</h4>
-  <% end %>
+  <h4><%= pluralize(@num_gnomes, "gnome") %> as of date</h4>
 </div>
 
 
 <br/>
 
 <div id="new_gnome">
-  <%= link_to 'New Gnome', new_gnome_path %>
+  <% if !current_user %>
+    <%= link_to 'New Gnome', login_path %>
+  <% else %>
+    <%= link_to 'New Gnome', new_gnome_path %>
+  <% end %>
 </div>
 <br/>
 <br/>
 <br/>
 <div class="paginate">
-  <%= will_paginate @gnomes %>
+<%= will_paginate @gnomes %>
 </div>
 
+
+
+
+
 <% if @num_gnomes > 0 %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Description</th>
+    </tr>
 
   <% @gnomes.each do |gnome| %>
     <tr>

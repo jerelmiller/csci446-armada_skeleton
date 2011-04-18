@@ -7,6 +7,7 @@ class CreateGnomes < ActiveRecord::Migration
       t.string :gender
       t.text :description
       t.string :image_url
+      t.integer :user_id
 
       t.timestamps
     end

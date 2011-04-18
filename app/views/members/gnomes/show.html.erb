@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @gnome.name %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%=h @gnome.cost %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%=h @gnome.age %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%=h @gnome.gender %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @gnome.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_gnome_path(@gnome) %> |
+<%= link_to 'Back', gnomes_path %>

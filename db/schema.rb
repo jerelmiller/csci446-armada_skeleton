@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20110415034343) do
     t.string   "gender"
     t.text     "description"
     t.string   "image_url"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

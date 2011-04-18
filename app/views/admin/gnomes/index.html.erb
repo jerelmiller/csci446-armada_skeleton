@@ -1,27 +1,31 @@
 <h1>All Gnomes</h1>
 
 <div id="title">
-  <% if @num_gnomes == 0 %>
-	<h4><%= pluralize(@num_gnomes, "gnome") %></h4>
-  <% else %>
-    <h4><%= pluralize(@num_gnomes, "gnome") %> as of date</h4>
-  <% end %>
+  <h4><%= pluralize(@num_gnomes, "gnome") %> as of date</h4>
 </div>
 
 
 <br/>
 
 <div id="new_gnome">
-  <%= link_to 'New Gnome', new_gnome_path %>
+  <%= link_to 'New Gnome', new_admin_gnome_path %>
 </div>
 <br/>
 <br/>
 <br/>
 <div class="paginate">
-  <%= will_paginate @gnomes %>
+<%= will_paginate @gnomes %>
 </div>
 
 <% if @num_gnomes > 0 %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Description</th>
+    </tr>
 
   <% @gnomes.each do |gnome| %>
     <tr>
@@ -30,9 +34,9 @@
       <td><%=h gnome.age %></td>
       <td><%=h gnome.gender %></td>
       <td><%=h gnome.description %></td>
-      <td><%= link_to 'Show', gnome %></td>
+      <td><%= link_to 'Show', admin_gnome_path(gnome) %></td>
     <% if current_user %>
-      <td><%= link_to 'Edit', edit_gnome_path(gnome) %></td>
+      <td><%= link_to 'Edit', edit_admin_gnome_path(gnome) %></td>
       <td><%= link_to 'Destroy', gnome, :confirm => 'Are you sure?', :method => :delete %></td>
     <% end %>
     </tr>
