@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   belongs_to :role, :counter_cache => true
   has_many :gnomes
   
+  has_many :favoritizations
+  has_many :gnomes, :through => :favoritizations
+  
   default_scope :include => :role
   
   before_validation_on_create :assign_default_role
