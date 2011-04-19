@@ -8,9 +8,13 @@
 </ul>
 <%= "created by #{@gnome.user} on #{@gnome.created_at.strftime("%b. %d, %Y.")}" %>
 
-<% form_for([:admin, @gnome]) do |f| %>
+<% form_for([:admin, @gnome], :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
 
+  <p>
+	<%= f.label :photo %><br/>
+	<%= f.file_field :photo %>
+  </p>
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
