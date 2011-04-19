@@ -4,6 +4,7 @@ authorization do
     has_permission_on :members_members, :to => :read
     has_permission_on :members_users, :to => :edit
     has_permission_on :members_gnomes, :to => :manage
+    has_permission_on :members_my_gnomes, :to => :read
   end
   role :administrator do
     includes :member
@@ -11,6 +12,7 @@ authorization do
     has_permission_on :admin_users, :to => :manage
     has_permission_on :admin_roles, :to => :manage
     has_permission_on :admin_gnomes, :to => :manage
+    has_permission_on :admin_my_gnomes, :to => :read
   end
   role :developer do
     includes :administrator

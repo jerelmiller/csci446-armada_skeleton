@@ -1,7 +1,11 @@
 <h1>All Gnomes</h1>
 
 <div id="title">
-  <h4><%= pluralize(@num_gnomes, "gnome") %> as of <%= Gnome.most_recent.created_at.strftime("%b. %d, %Y.") %></h4>
+  <% if @num_gnomes == 0 %>
+	<h4><%= pluralize(@num_gnomes, "gnome") %></h4>
+  <% else %>
+    <h4><%= pluralize(@num_gnomes, "gnome") %> as of <%= Gnome.most_recent.created_at.strftime("%b. %d, %Y.") %></h4>
+  <% end %>
 </div>
 
 

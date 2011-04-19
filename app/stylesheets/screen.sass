@@ -124,7 +124,22 @@ p.hint
     list-style-type: none
 
 #new_gnome
-  float: right
+  a
+    text-decoration: none
+    float: right
+    background: #CCC
+    @include shadow(6px, 7px, #999)
+    @include rounded(10px)
+    font-weight: bold
+    font-size: 1.5em
+    width: 200px
+    text-align: center
+    font-family: fantasy
+    height: 30px
+  a:hover
+    font-size: 1.7em
+    font-family: arial
+  
 
 #title
   float: left
