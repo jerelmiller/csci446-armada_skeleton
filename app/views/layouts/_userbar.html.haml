@@ -1,6 +1,13 @@
 #userbar
   %p
-    = "#{current_user}, #{current_user.role.to_s.capitalize}"
+    - if current_user.role.name == "developer" || current_user.role.name == "administrator"
+      = link_to "#{current_user}", edit_admin_user_path(current_user)
+    - elsif current_user.role.name == "member"
+      = link_to "#{current_user}", edit_members_user_path(current_user)
+    - else
+      = "#{current_user}"
+
+    = ", #{current_user.role.to_s.capitalize}"
     = link_to 'log out', logout_path
   %p= Time.now.to_s(:datetime)
   

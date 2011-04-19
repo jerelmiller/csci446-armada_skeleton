@@ -1,4 +1,4 @@
-class Members::GnomesController < Members::MemberController
+class Members::GnomesController < Members::MembersController
 
   GNOMES_PER_PAGE = 5
 
