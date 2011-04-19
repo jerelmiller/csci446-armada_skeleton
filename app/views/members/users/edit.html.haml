@@ -1,0 +1,10 @@
+- content_for :title do
+  = "Edit #{@user}"
+
+%h2
+  = "Editing #{@user}"
+  .action
+    = link_to image_tag('icon_small_larrow.png', :border => 0), members_root_url
+    = link_to 'back to main', members_root_url
+
+= render :partial => "form", :locals => {:user => @user}

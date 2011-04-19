@@ -69,7 +69,7 @@ class Admin::GnomesController < Admin::AdminController
     @gnome.destroy
 
     respond_to do |format|
-      format.html { redirect_to(gnomes_url) }
+      format.html { redirect_to(admin_gnomes_url) }
       format.xml  { head :ok }
     end
   end

@@ -19,20 +19,6 @@ class Members::UsersController < Members::MembersController
     end
   end
 
-  def destroy
-    respond_to do |format|
-      if @user.destroy
-        flash[:success] = 'User was successfully destroyed.'        
-        format.html { redirect_to members_users_path }
-        format.xml  { head :ok }
-      else
-        flash[:error] = 'User could not be destroyed.'
-        format.html { redirect_to members_user_url(@user) }
-        format.xml  { head :unprocessable_entity }
-      end
-    end
-  end
-
   private
 
     def find_user
