@@ -1,0 +1,29 @@
+%ul.stuff-menu
+  %li.gnome-name= @gnome.name
+  %li.icons
+    = link_to image_tag('icon_small_larrow.png', :border => 0), gnomes_path
+    = link_to 'back to list', gnomes_path
+#new_gnome
+  = link_to 'New Gnome', login_url
+= "created by #{@gnome.user} on #{@gnome.created_at.strftime("%b. %d, %Y.")}"
+%br/
+%br/
+%br/
+%font.gnomes-show
+  Name:
+= h @gnome.name
+%br/
+%font.gnomes-show
+  Age:
+= h @gnome.age
+%br/
+%font.gnomes-show
+  Gender:
+= h @gnome.gender
+%br/
+.gnome-description
+  = h @gnome.description
+%br/
+.gnome-cost
+  Cost:
+  \#{h @gnome.cost} ArmadaBucks
