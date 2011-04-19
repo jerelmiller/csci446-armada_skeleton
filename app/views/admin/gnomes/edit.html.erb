@@ -1,4 +1,4 @@
-<h1>Editing gnome</h1>
+<h1><%= "Editing #{@gnome.name}" %></h1>
 
 <% form_for([:admin, @gnome]) do |f| %>
   <%= f.error_messages %>

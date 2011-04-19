@@ -28,7 +28,7 @@
     <tr>
       <td>image</td>
       <td><%=h link_to "#{gnome.name}", gnome %> by <%=h gnome.user %> (<%=h gnome.cost %> ArmadaBucks) <br/>
-		<%=h gnome.description %></td>
+		<%=h truncate(gnome.description, :length => 65) %></td>
       <td><%= link_to (image_tag('/images/icon_small_show.png', :border => 0, :title => "Show #{gnome.name}")), gnome %></td>
     </tr>
   <% end %>
