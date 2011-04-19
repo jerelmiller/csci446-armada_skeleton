@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users
     admin.resources :gnomes
     admin.mygnomes 'mygnomes', :controller => "my_gnomes", :action => "index"
+    admin.show_content 'show_content', :controller => "gnomes_controller", :action => "show_content"
     admin.root :controller => 'admin', :action => 'index'
   end
 

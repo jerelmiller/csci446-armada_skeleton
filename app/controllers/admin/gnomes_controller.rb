@@ -73,4 +73,5 @@ class Admin::GnomesController < Admin::AdminController
       format.xml  { head :ok }
     end
   end
+  
 end
