@@ -45,7 +45,7 @@ class Members::GnomesController < Members::MembersController
     @gnome.user = current_user
     respond_to do |format|
       if @gnome.save
-        format.html { redirect_to(@gnome, :notice => 'Gnome was successfully created.') }
+        format.html { redirect_to(members_gnomes_url, :notice => 'Gnome was successfully created.') }
         format.xml  { render :xml => @gnome, :status => :created, :location => @gnome }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class Members::GnomesController < Members::MembersController
 
     respond_to do |format|
       if @gnome.update_attributes(params[:gnome])
-        format.html { redirect_to(@gnome, :notice => 'Gnome was successfully updated.') }
+        format.html { redirect_to(members_gnomes_url, :notice => 'Gnome was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -77,7 +77,7 @@ class Members::GnomesController < Members::MembersController
     @gnome.destroy
 
     respond_to do |format|
-      format.html { redirect_to(gnomes_url) }
+      format.html { redirect_to(members_gnome_path) }
       format.xml  { head :ok }
     end
   end

@@ -12,11 +12,7 @@
 <br/>
 
 <div id="new_gnome">
-  <% if !current_user %>
-    <%= link_to 'New Gnome', login_path %>
-  <% else %>
-    <%= link_to 'New Gnome', new_gnome_path %>
-  <% end %>
+  <%= link_to 'New Gnome', new_members_gnome_path %>
 </div>
 <br/>
 <br/>
@@ -37,7 +33,7 @@
       <td><%= link_to (image_tag('/images/icon_small_show.png', :border => 0, :title => "Show #{gnome.name}")), members_gnome_path(gnome) %></td>
     <% if gnome.user == current_user %>
       <td><%= link_to (image_tag('/images/icon_small_edit.png', :border => 0, :title => "Edit #{gnome.name}")), edit_members_gnome_path(gnome) %></td>
-      <td><%= link_to (image_tag('/images/icon_small_delete.png', :border => 0, :title => "Delete #{gnome.name}")), admin_members_path(gnome), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to (image_tag('/images/icon_small_delete.png', :border => 0, :title => "Delete #{gnome.name}")), members_gnome_path(gnome), :confirm => 'Are you sure?', :method => :delete %></td>
     <% end %>
     </tr>
   <% end %>

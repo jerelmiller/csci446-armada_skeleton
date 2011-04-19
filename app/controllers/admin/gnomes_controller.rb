@@ -37,7 +37,7 @@ class Admin::GnomesController < Admin::AdminController
     @gnome.user = current_user
     respond_to do |format|
       if @gnome.save
-        format.html { redirect_to(admin_root_url, :notice => 'Gnome was successfully created.') }
+        format.html { redirect_to(admin_gnomes_url, :notice => 'Gnome was successfully created.') }
         format.xml  { render :xml => @gnome, :status => :created, :location => @gnome }
       else
         format.html { render :action => "new" }
@@ -53,7 +53,7 @@ class Admin::GnomesController < Admin::AdminController
 
     respond_to do |format|
       if @gnome.update_attributes(params[:gnome])
-        format.html { redirect_to(admin_gnome_path, :notice => 'Gnome was successfully updated.') }
+        format.html { redirect_to(admin_gnomes_url, :notice => 'Gnome was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

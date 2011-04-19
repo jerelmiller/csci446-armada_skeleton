@@ -1,4 +1,12 @@
-<h1><%= "Editing #{@gnome.name}" %></h1>
+<ul class="stuff-menu">
+  <li class="gnome-name"><%= "Editing #{@gnome.name}" %></li>
+  <li class="icons"><%= link_to image_tag('icon_small_larrow.png', :border => 0), admin_gnomes_path %>
+	<%= link_to 'back to list', admin_gnomes_path%></li>
+  <li class="icons"><%= link_to image_tag('icon_small_delete.png', :border => 0), admin_gnome_path(@gnome) %>
+	<%= link_to 'delete', admin_gnome_path(@gnome), :confirm => 'Are you sure?', :method => :delete %></li>
+  <li><%= image_tag('icon_small_star_inactive.png', :border => 0) %></li>
+</ul>
+<%= "created by #{@gnome.user} on #{@gnome.created_at.strftime("%b. %d, %Y.")}" %>
 
 <% form_for([:admin, @gnome]) do |f| %>
   <%= f.error_messages %>
@@ -10,14 +18,19 @@
   <p>
     <%= f.label :cost %><br />
     <%= f.text_field :cost %>
-  </p>
+  </p>  
   <p>
     <%= f.label :age %><br />
     <%= f.text_field :age %>
   </p>
   <p>
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+	Gender
+	<%= f.radio_button :gender, 'Male' %> 
+	<%= f.label :gender, 'Male', :value => 'Male' %>
+	<%= f.radio_button :gender, 'Female' %>
+	<%= f.label :gender, 'Female', :value => 'Female' %>
+	<%= f.radio_button :gender, 'Ambiguous' %>
+	<%= f.label :gender, 'Ambiguous', :value => 'Ambiguous' %>
   </p>
   <p>
     <%= f.label :description %><br />
@@ -27,6 +40,3 @@
     <%= f.submit 'Update' %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @gnome %> |
-<%= link_to 'Back', admin_gnome_path %>
