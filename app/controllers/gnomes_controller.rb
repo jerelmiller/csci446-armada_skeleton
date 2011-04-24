@@ -12,7 +12,14 @@ class GnomesController < ApplicationController
   end
 
   def new
-    redirect_to login_path
+    if current_user
+      if current_user.role.name =="member"
+        redirect_to new_member_gnome_path
+      elsif current_user.role.name == "admin" || current_user.role.name == "developer"
+        redirect_to new_admin_gnome_path
+    else
+      redirect_to login_path
+    end
   end
 
 end
