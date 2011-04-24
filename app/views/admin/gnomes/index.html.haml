@@ -27,8 +27,8 @@
           %br/
           = h truncate(gnome.description, :length => 70)
           = link_to " more", "#"
-        %td= link_to (image_tag('/images/icon_small_show.png', :border => 0, :title => "Show #{gnome.name}")), admin_gnome_path(gnome)
+        %td= link_to image_tag('/images/icon_small_show.png', :border => 0, :title => "Show #{gnome.name}"), admin_gnome_path(gnome)
         - if gnome.user == current_user
-          %td= link_to (image_tag('/images/icon_small_edit.png', :border => 0, :title => "Edit #{gnome.name}")), edit_admin_gnome_path(gnome)
-          %td= link_to (image_tag('/images/icon_small_delete.png', :border => 0, :title => "Delete #{gnome.name}")), admin_gnome_path(gnome), :confirm => 'Are you sure?', :method => :delete
+          %td= link_to image_tag('/images/icon_small_edit.png', :border => 0, :title => "Edit #{gnome.name}"), edit_admin_gnome_path(gnome)
+          %td= link_to image_tag('/images/icon_small_delete.png', :border => 0, :title => "Delete #{gnome.name}"), admin_gnome_path(gnome), :confirm => 'Are you sure?', :method => :delete
 %br/
