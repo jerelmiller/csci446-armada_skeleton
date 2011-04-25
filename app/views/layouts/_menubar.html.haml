@@ -4,8 +4,8 @@
   - if current_user.role.name == "developer" || current_user.role.name == "administrator"
     %li= link_to 'all gnomes', admin_gnomes_path, :title => 'All Gnomes'
     %li= link_to 'my gnomes', admin_mygnomes_path, :title => 'My Gnomes'
-    %li= link_to 'my favorites', '#', :title => 'My Favorites'
+    %li= link_to 'my favorites', admin_myfavorites_path, :title => 'My Favorites'
   - else
     %li= link_to 'all gnomes', members_gnomes_path, :title => 'gnomes'
     %li= link_to 'my gnomes', members_mygnomes_path, :title => 'My Gnomes'
-    %li= link_to 'my favorites', '#', :title => 'My Favorites'
+    %li= link_to 'my favorites', members_myfavorites_path, :title => 'My Favorites'

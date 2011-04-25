@@ -1,7 +1,7 @@
-%h1 My Gnomes
+%h1 My Favorite Gnomes
 #title
   %h4
-    = pluralize(@num_gnomes, "gnome")
+    
     as of #{Gnome.most_recent.created_at.strftime("%b. %d, %Y.")}
 %br/
 #new_gnome
@@ -22,12 +22,12 @@
       %tr
         %td image
         %td.middle-stuff
-          = h link_to "#{gnome.name}", admin_gnome_path(gnome)
+          = h link_to "#{gnome.name}", members_gnome_path(gnome)
           by #{h gnome.user} (#{h gnome.cost} ArmadaBucks) #{image_tag('/images/icon_small_star_inactive.png')}
           %br/
           = h truncate(gnome.description, :length => 70)
-        %td= link_to image_tag('/images/icon_small_show.png', :border => 0, :title => "Show #{gnome.name}"), admin_gnome_path(gnome)
+        %td= link_to image_tag('/images/icon_small_show.png', :border => 0, :title => "Show #{gnome.name}"), members_gnome_path(gnome)
         - if gnome.user == current_user
-          %td= link_to image_tag('/images/icon_small_edit.png', :border => 0, :title => "Edit #{gnome.name}"), edit_admin_gnome_path(gnome)
-          %td= link_to image_tag('/images/icon_small_delete.png', :border => 0, :title => "Delete #{gnome.name}"), admin_gnome_path(gnome), :confirm => 'Are you sure?', :method => :delete
+          %td= link_to image_tag('/images/icon_small_edit.png', :border => 0, :title => "Edit #{gnome.name}"), edit_members_gnome_path(gnome)
+          %td= link_to image_tag('/images/icon_small_delete.png', :border => 0, :title => "Delete #{gnome.name}"), members_gnome_path(gnome), :confirm => 'Are you sure?', :method => :delete
 %br/

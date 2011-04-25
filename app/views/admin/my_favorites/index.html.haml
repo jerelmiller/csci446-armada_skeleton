@@ -1,7 +1,7 @@
-%h1 My Gnomes
+%h1 My Favorite Gnomes
 #title
   %h4
-    = pluralize(@num_gnomes, "gnome")
+    
     as of #{Gnome.most_recent.created_at.strftime("%b. %d, %Y.")}
 %br/
 #new_gnome
