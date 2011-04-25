@@ -10,8 +10,7 @@ class Gnome < ActiveRecord::Base
   has_many :users, :through => :favoritizations
   
   has_attached_file :photo,
-                      :styles => {
-                     
+                      
                       :default_url => '/images/default_shield.png',
                       :storage => :s3,
                       :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
