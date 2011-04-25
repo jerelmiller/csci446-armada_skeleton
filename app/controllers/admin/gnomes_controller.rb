@@ -14,6 +14,10 @@ class Admin::GnomesController < Admin::AdminController
 
   def show
     @gnome = Gnome.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @gnome }
+    end
   end
 
   def new
