@@ -1,9 +1,7 @@
 class GnomesController < ApplicationController
 
-  GNOMES_PER_PAGE = 5
-
   def index
-    @gnomes = Gnome.paginate(:page => params[:page], :per_page => GNOMES_PER_PAGE, :order => 'created_at DESC')
+    @gnomes = Gnome.paginate(:page => params[:page], :order => 'created_at DESC')
     @num_gnomes = Gnome.count
     
     respond_to do |format|

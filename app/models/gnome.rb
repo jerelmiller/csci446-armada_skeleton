@@ -9,8 +9,14 @@ class Gnome < ActiveRecord::Base
   has_many :favoritizations
   has_many :users, :through => :favoritizations
   
+  cattr_reader :per_page
+  @@per_page = 10
+  
   has_attached_file :photo,
-                      
+                      :styles => {
+                        :thumb => ["72x72#"],
+                        :medium => ["300x300#"]
+                      },
                       :default_url => '/images/default_shield.png',
                       :storage => :s3,
                       :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
