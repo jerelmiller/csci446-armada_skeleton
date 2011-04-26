@@ -6,13 +6,13 @@ class Gnome < ActiveRecord::Base
   validates_presence_of :cost
   
   belongs_to :user
-  has_many :favoritizations
-  has_many :users, :through => :favoritizations
+  #has_many :favoritizations
+  #has_many :users, :through => :favoritizations
   
   cattr_reader :per_page
   @@per_page = 10
   
-  attr_accessor :photo_file_name
+  #attr_accessor :photo_file_name
   
   has_attached_file :photo,
                     :styles => {
