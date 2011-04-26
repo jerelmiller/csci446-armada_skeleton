@@ -1,6 +1,10 @@
 %h1 New gnome
-- form_for([:members, @gnome]) do |f|
+- form_for([:members, @gnome], :html => {:multipart => :true}) do |f|
   = f.error_messages
+  %p
+    = f.label :photo
+    %br/
+    = f.file_field :photo
   %p
     = f.label :name
     %br/
