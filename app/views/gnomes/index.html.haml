@@ -20,7 +20,8 @@
   %table
     - @gnomes.each do |gnome|
       %tr
-        %td= link_to image_tag(gnome.photo.url(:thumb), :border => 0), gnome
+        %td
+          = image_tag(gnome.photo.url(:thumb), :border => 0), gnome
         %td
           = h link_to "#{gnome.name}", gnome
           by #{h gnome.user} (#{h gnome.cost} ArmadaBucks)
