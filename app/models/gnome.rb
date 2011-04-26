@@ -22,7 +22,7 @@ class Gnome < ActiveRecord::Base
                     :default_url => '/images/default_gnome.jpg',
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-                    :url => "cs446/mw_assoc/#{Rails.env}/:attachment/:id/:style.:extension"
+                    :path => "cs446/mw_assoc/#{Rails.env}/:attachment/:id/:style.:extension"
   
   def self.most_recent
     first(:order => 'created_at DESC')
