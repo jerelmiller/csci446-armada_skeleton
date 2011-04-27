@@ -29,52 +29,55 @@ class Admin::GnomesController < Admin::AdminController
     end
   end
 
-  # GET /gnomes/1/edit
   def edit
     @gnome = Gnome.find(params[:id])
   end
 
-  # POST /gnomes
-  # POST /gnomes.xml
   def create
     @gnome = Gnome.new(params[:gnome])
     @gnome.user = current_user
     respond_to do |format|
       if @gnome.save
-        format.html { redirect_to(admin_gnomes_url, :notice => 'Gnome was successfully created.') }
+        flash[:success] = "#{@gnome.name} was successfully created."
+        format.html { redirect_to(admin_gnomes_url) }
         format.xml  { render :xml => @gnome, :status => :created, :location => @gnome }
       else
+        flash[:error] = 'Gnome could not be created.'
         format.html { render :action => "new" }
         format.xml  { render :xml => @gnome.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /gnomes/1
-  # PUT /gnomes/1.xml
   def update
     @gnome = Gnome.find(params[:id])
 
     respond_to do |format|
       if @gnome.update_attributes(params[:gnome])
-        format.html { redirect_to(admin_gnomes_url, :notice => 'Gnome was successfully updated.') }
+        flash[:success] = "#{@gnome.name} was successfully updated."
+        format.html { redirect_to(admin_gnomes_url) }
         format.xml  { head :ok }
       else
+        flash[:error] = "There was a problem editing #{@gnome.name}"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @gnome.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /gnomes/1
-  # DELETE /gnomes/1.xml
   def destroy
     @gnome = Gnome.find(params[:id])
-    @gnome.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to(admin_gnomes_url) }
-      format.xml  { head :ok }
+      if @gnome.destroy
+        flash[:success] = "Gnome was successfully deleted."
+        format.html { redirect_to(admin_gnomes_url) }
+        format.xml  { head :ok }
+      else
+        flash[:error] = "Gnome could not be deleted."
+        format.html { redirect_to admin_gnomes_url }
+        format.xml  { head :unprocessable_entity }
+      end
     end
   end
   
