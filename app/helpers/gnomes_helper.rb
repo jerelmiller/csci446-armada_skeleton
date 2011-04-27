@@ -7,5 +7,4 @@ module GnomesHelper
     		end
     	end
   end
-  
 end

@@ -25,8 +25,9 @@
           = h link_to "#{gnome.name}", members_gnome_path(gnome)
           by #{h gnome.user} (#{h gnome.cost} ArmadaBucks) #{image_tag('/images/icon_small_star_inactive.png')}
           %br/
-          = h truncate(gnome.description, :length => 70)
-          = more_link(gnome)
+          .desc{:id => "desc#{gnome.id}"}
+            = h truncate(gnome.description, :length => 65)
+            = more_link(gnome)
           = link_to " more", "#"
         %td= link_to image_tag('/images/icon_small_show.png', :border => 0, :title => "Show #{gnome.name}"), members_gnome_path(gnome)
         - if gnome.user == current_user
