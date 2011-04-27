@@ -5,7 +5,7 @@ authorization do
     has_permission_on :members_users, :to => :edit
     has_permission_on :members_gnomes, :to => [:read, :create] 
     has_permission_on :members_gnomes, :to => [:edit, :delete] do
-      if_attribute :user => is {current_user}
+      if_attribute :user => is {user}
     end
     has_permission_on :members_my_gnomes, :to => :read
     has_permission_on :members_my_favorites, :to => :read
