@@ -7,5 +7,5 @@
     = link_to image_tag('icon_small_delete.png', :border => 0), admin_gnome_path(@gnome)
     = link_to 'delete', admin_gnome_path(@gnome), :confirm => 'Are you sure?', :method => :delete
   %li= image_tag('icon_small_star_inactive.png', :border => 0)
-= "created by #{@gnome.user} on #{@gnome.created_at.strftime("%b. %d, %Y.")}"
+= "created by #{@gnome.user} on #{@gnome.created_at.to_s(:date)}"
 = render :partial => 'form', :locals => {:gnome => @gnome}

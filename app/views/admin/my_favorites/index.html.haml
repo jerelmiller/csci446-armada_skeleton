@@ -1,8 +1,13 @@
 %h1 My Favorite Gnomes
 #title
-  %h4
-    
-    as of #{Gnome.most_recent.created_at.strftime("%b. %d, %Y.")}
+  - if @num_gnomes == 0
+    %h4
+      = pluralize(@num_gnomes, "gnome") 
+      as of #{Time.now.to_s(:date)}
+  - else
+    %h4
+      = pluralize(@num_gnomes, "gnome")
+      as of #{Gnome.most_recent.created_at.to_s(:date)}
 %br/
 #new_gnome
   - if !current_user

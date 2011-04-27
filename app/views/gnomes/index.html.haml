@@ -1,11 +1,13 @@
 %h1 All Gnomes
 #title
   - if @num_gnomes == 0
-    %h4= pluralize(@num_gnomes, "gnome")
+    %h4
+      = pluralize(@num_gnomes, "gnome")
+      as of #{Time.now.to_s(:date)}
   - else
     %h4
       = pluralize(@num_gnomes, "gnome")
-      as of #{Gnome.most_recent.created_at.strftime("%b. %d, %Y.")}
+      as of #{Gnome.most_recent.created_at.to_s(:date)}
 %br/
 #new_gnome
   = link_to 'New Gnome', new_gnome_path
