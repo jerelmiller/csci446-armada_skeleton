@@ -9,21 +9,24 @@
 %br/
 %br/
 %br/
-%font.gnomes-show
-  Name:
-= h @gnome.name
-%br/
-%font.gnomes-show
-  Age:
-= h @gnome.age
-%br/
-%font.gnomes-show
-  Gender:
-= h @gnome.gender
-%br/
-.gnome-description
-  = h @gnome.description
-%br/
-.gnome-cost
-  Cost:
-  \#{h @gnome.cost} ArmadaBucks
+.img
+  = image_tag(@gnome.photo.url(:medium), :border => 0)
+.form
+  %font.gnomes-show
+    Name:
+  = h @gnome.name
+  %br/
+  %font.gnomes-show
+    Age:
+  = h @gnome.age
+  %br/
+  %font.gnomes-show
+    Gender:
+  = h @gnome.gender
+  %br/
+  .gnome-description
+    = h @gnome.description
+  %br/
+  .gnome-cost
+    Cost:
+    \#{h @gnome.cost} ArmadaBucks
