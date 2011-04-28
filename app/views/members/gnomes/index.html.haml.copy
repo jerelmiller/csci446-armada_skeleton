@@ -30,7 +30,7 @@
           - remote_form_for form_path(user.id, gnome.id),
               :url => form_action(user.id, gnome.id),
               :method => form_method(user.id, gnome.id),
-              :html => {:id => "favourite_" + gnome.id.to_s, :class => "favourite_form_class"} do |f| 
+              :html => {:id => "favourite_" + gnome.id.to_s, :class => "favourite_form_class"} do |f| %>
             = f.hidden_field :user_id, :value => current_user.id
             = f.hidden_field :gnome_id, :value => gnome.id
             = image_submit_tag('icon_small_star_inactive.png', :border=>0)

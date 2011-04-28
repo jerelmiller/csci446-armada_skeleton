@@ -26,11 +26,7 @@
 									
           = h link_to "#{gnome.name}", members_gnome_path(gnome)
           by #{h gnome.user} (#{h gnome.cost} ArmadaBucks) #{image_tag('/images/icon_small_star_inactive.png')}
-
-          - remote_form_for form_path(user.id, gnome.id),
-              :url => form_action(user.id, gnome.id),
-              :method => form_method(user.id, gnome.id),
-              :html => {:id => "favourite_" + gnome.id.to_s, :class => "favourite_form_class"} do |f| 
+          - form_for 'favorite', :url => {:controller => "my_favorites", :action => "create"} do |f|
             = f.hidden_field :user_id, :value => current_user.id
             = f.hidden_field :gnome_id, :value => gnome.id
             = image_submit_tag('icon_small_star_inactive.png', :border=>0)
