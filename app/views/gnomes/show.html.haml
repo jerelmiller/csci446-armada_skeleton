@@ -5,7 +5,7 @@
     = link_to 'back to list', gnomes_path
 #new_gnome
   = link_to 'New Gnome', login_url
-= "created by #{@gnome.user} on #{@gnome.created_at.strftime("%b. %d, %Y.")}"
+= "created by #{@gnome.user} on #{@gnome.created_at.to_s(:date)}"
 %br/
 %br/
 %br/

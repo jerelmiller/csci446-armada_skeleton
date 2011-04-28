@@ -13,7 +13,7 @@
   %li= image_tag('icon_small_star_inactive.png', :border => 0)
 #new_gnome
   = link_to 'New Gnome', new_members_gnome_path
-= "created by #{@gnome.user} on #{@gnome.created_at.strftime("%b. %d, %Y.")}"
+= "created by #{@gnome.user} on #{@gnome.created_at.to_s(:date)}"
 %br/
 %br/
 %br/

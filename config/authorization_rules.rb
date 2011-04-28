@@ -3,7 +3,10 @@ authorization do
   role :member do
     has_permission_on :members_members, :to => :read
     has_permission_on :members_users, :to => :edit
-    has_permission_on :members_gnomes, :to => :manage
+    has_permission_on :members_gnomes, :to => [:read, :create] 
+    has_permission_on :members_gnomes, :to => [:edit, :delete] do
+      if_attribute :user => is {user}
+    end
     has_permission_on :members_my_gnomes, :to => :read
     has_permission_on :members_my_favorites, :to => :read
   end
