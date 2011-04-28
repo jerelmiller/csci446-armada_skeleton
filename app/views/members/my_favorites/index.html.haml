@@ -12,13 +12,13 @@
 %br/
 %br/
 .paginate
-  = will_paginate @gnomes
+  = will_paginate @favoritization
 %br/
 %br/
 %br/
-- if @num_gnomes > 0
+- if @num_favoritization > 0
   %table
-    - @gnomes.each do |gnome|
+    - @favoritization.each do |gnome|
       %tr
         %td image
         %td.middle-stuff

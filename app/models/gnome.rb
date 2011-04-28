@@ -6,8 +6,8 @@ class Gnome < ActiveRecord::Base
   validates_numericality_of :cost
   
   belongs_to :user
-  #has_many :favoritizations
-  #has_many :users, :through => :favoritizations
+  has_many :favoritizations
+  has_many :users, :through => :favoritizations
   
   cattr_reader :per_page
   @@per_page = 10

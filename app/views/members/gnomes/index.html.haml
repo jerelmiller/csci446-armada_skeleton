@@ -20,15 +20,21 @@
   %table
     - @gnomes.each do |gnome|
       %tr
-        %td image
-        %td.middle-stuff
+        %td
+          = image_tag(gnome.photo.url(:thumb), :border => 0)
+        %td
+									
           = h link_to "#{gnome.name}", members_gnome_path(gnome)
           by #{h gnome.user} (#{h gnome.cost} ArmadaBucks) #{image_tag('/images/icon_small_star_inactive.png')}
+          - form_for 'favorite', :url => {:controller => :my_favorites, :action => :create} do |f|
+            = f.hidden_field :user_id, :value => current_user.id
+            = f.hidden_field :gnome_id, :value => gnome.id
+            = image_submit_tag('icon_small_star_inactive.png', :border=>0)
+          
           %br/
           .desc{:id => "desc#{gnome.id}"}
             = h truncate(gnome.description, :length => 65)
             = more_link(gnome)
-          = link_to " more", "#"
         %td= link_to image_tag('/images/icon_small_show.png', :border => 0, :title => "Show #{gnome.name}"), members_gnome_path(gnome)
         - if gnome.user == current_user
           %td= link_to image_tag('/images/icon_small_edit.png', :border => 0, :title => "Edit #{gnome.name}"), edit_members_gnome_path(gnome)

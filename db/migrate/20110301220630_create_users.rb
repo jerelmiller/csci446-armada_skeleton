@@ -21,6 +21,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :current_login_ip
       t.string :last_login_ip
       t.timestamps
+
     end
     add_index :users, :email, :unique => true
     add_index :users, :perishable_token 

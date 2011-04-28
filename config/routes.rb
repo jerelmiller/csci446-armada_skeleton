@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :gnomes
     admin.mygnomes 'mygnomes', :controller => "my_gnomes", :action => "index"
     admin.show_content 'show_content', :controller => "gnomes_controller", :action => "show_content"
-    admin.myfavorites 'myfavorites', :controller => "my_favorites", :action => "index"
+    admin.myfavorites 'myfavorites', :controller => "my_favorites", :action => "create"
     admin.root :controller => 'admin', :action => 'index'
   end
 
