@@ -2,11 +2,11 @@
 #title
   - if @num_gnomes == 0
     %h4
-      = pluralize(@num_gnomes, "gnome")
+      = pluralize(@num_gnomes, "favorite")
       as of #{Time.now.to_s(:date)}
   - else
     %h4
-      = pluralize(@num_gnomes, "gnome")
+      = pluralize(@num_gnomes, "favorite")
       as of #{Gnome.most_recent.created_at.to_s(:date)}
 %br/
 #new_gnome
