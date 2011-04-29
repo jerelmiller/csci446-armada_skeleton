@@ -13,7 +13,7 @@ Role.create!(:name => 'member', :description => 'A typical application user.')
 # Seed developer users.
 #r = Role.find_by_name('developer')
 
-# FIXME
+
 #jermille = User.new(:first_name => 'Jerel',
  #                   :last_name => 'Miller',
  #                   :email => 'jermille@mines.edu',
@@ -22,7 +22,7 @@ Role.create!(:name => 'member', :description => 'A typical application user.')
  #                   :role => r)
 #jermille.save_without_session_maintenance
 
-# FIXME
+
 #awesterm = User.new(:first_name => 'Alec',
  #                   :last_name => 'Westerman',
  #                   :email => 'awesterm@mines.edu',
