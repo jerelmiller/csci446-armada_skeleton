@@ -19,7 +19,7 @@ class Members::GnomesController < Members::MembersController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @gnome }
-		format.js
+	  	format.js
     end
   end
 
