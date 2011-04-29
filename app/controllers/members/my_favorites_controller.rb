@@ -16,16 +16,19 @@ class Members::MyFavoritesController < Members::MembersController
 		@favoritization.user = current_user
 		respond_to do |format|
 		  if @favoritization.save
-		    flash[:success] = "#{@gnome.name} was successfully created."
+		    flash[:success] = "#{@gnome.name} Favorited."
 			 format.html { redirect_to(members_gnomes_url) }
 		    format.xml  { render :xml => @gnome, :status => :created, :location => @gnome }
 		  else
-		    flash[:error] = 'Gnome could not be created.'
+		    flash[:error] = 'Gnome could not be favorited.'
 		    format.html { render :action => "new" }
 		    format.xml  { render :xml => @gnome.errors, :status => :unprocessable_entity }
 		  end
 	   end
 	 end																						  
+	 def contains?(gnomes)
+       
+    end
 	 	
 
 end

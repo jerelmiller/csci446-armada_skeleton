@@ -1,0 +1,9 @@
+- if true 
+  - image_url = "/images/icon_small_star.png"
+- else
+  - image_url = "/images/icon_small_star_inactive.png"
+	   
+= link_to_remote image_tag(image_url),
+	                   :url => toggle_members_favoritizations_path(gnome.id),
+							 :method => :get,
+							 :update => "fave#{gnome.id}"

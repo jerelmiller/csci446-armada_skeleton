@@ -1,17 +1,14 @@
 %h1 All Gnomes
 #title
   - if @num_gnomes == 0
-    %h4
-      = pluralize(@num_gnomes, "gnome")
-      as of #{Time.now.to_s(:date)}
+    %h4= pluralize(@num_gnomes, "gnome")
   - else
     %h4
       = pluralize(@num_gnomes, "gnome")
-      as of #{Gnome.most_recent.created_at.to_s(:date)}
+      as of #{Gnome.most_recent.created_at.strftime("%b. %d, %Y.")}
 %br/
 #new_gnome
   = link_to 'New Gnome', new_members_gnome_path
-%br/
 %br/
 %br/
 .paginate
@@ -30,13 +27,16 @@
           = h link_to "#{gnome.name}", members_gnome_path(gnome)
           by #{h gnome.user} (#{h gnome.cost} ArmadaBucks) #{image_tag('/images/icon_small_star_inactive.png')}
 
-          - remote_form_for form_path(user.id, gnome.id),
-              :url => form_action(user.id, gnome.id),
-              :method => form_method(user.id, gnome.id),
-              :html => {:id => "favourite_" + gnome.id.to_s, :class => "favourite_form_class"} do |f| 
-            = f.hidden_field :user_id, :value => current_user.id
-            = f.hidden_field :gnome_id, :value => gnome.id
-            = image_submit_tag('icon_small_star_inactive.png', :border=>0)
+          %div{ :id => "fave#{gnome.id}" }
+            = render :partial => "gnome", :object => gnome
+
+          -# form_remote_for form_path(current_user.id, gnome.id),
+            # :url => form_action(current_user.id, gnome.id),
+            # :method => form_method(current_user.id, gnome.id),
+            # :html => {:id => "favourite_" + gnome.id.to_s, :class => "favourite_form_class"} do |f| 
+            # = f.hidden_field :user_id, :value => current_user.id
+            # = f.hidden_field :gnome_id, :value => gnome.id
+            # = image_submit_tag('icon_small_star_inactive.png', :border=>0)
           
           %br/
           .desc{:id => "desc#{gnome.id}"}
