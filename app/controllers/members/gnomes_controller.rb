@@ -1,6 +1,6 @@
 class Members::GnomesController < Members::MembersController
 
-  GNOMES_PER_PAGE = 5
+  filter_resource_access
 
   def index
     @gnomes = Gnome.paginate(:page => params[:page], :order => 'created_at DESC')
