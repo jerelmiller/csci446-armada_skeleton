@@ -1,6 +1,6 @@
 class Members::GnomesController < Members::MembersController
 
-  GNOMES_PER_PAGE = 5
+  filter_resource_access
 
   def index
     @gnomes = Gnome.paginate(:page => params[:page], :order => 'created_at DESC')
@@ -19,7 +19,7 @@ class Members::GnomesController < Members::MembersController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @gnome }
-		format.js
+	  	format.js
     end
   end
 
