@@ -12,8 +12,6 @@ class Gnome < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
   
-  attr_accessor :photo_file_name
-  
   has_attached_file :photo,
                     :styles => {
                       :thumb => ["72x72#"],
