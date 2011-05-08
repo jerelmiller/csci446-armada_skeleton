@@ -1,6 +1,7 @@
 # Using declarative_authorization.
 authorization do
   role :member do
+    has_permission_on :members_my_favorites, :to => :favor
     has_permission_on :members_members, :to => :read
     has_permission_on :members_users, :to => :edit
     has_permission_on :members_gnomes, :to => [:read, :create] 
@@ -31,4 +32,5 @@ privileges do
   privilege :create, :includes => :new
   privilege :update, :includes => [:edit]
   privilege :delete, :includes => :destroy
+  privilege :favor, :includes => [:read, :create, :delete]
 end

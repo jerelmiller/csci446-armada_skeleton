@@ -1,0 +1,13 @@
+%span#favorite[gnome]
+  - if current_user.favorite_gnomes.include? gnome
+    = link_to_remote(image_tag('/images/icon_small_star.png'),
+                     :update => "favorite_#{dom_id(gnome)}",
+                     :url => members_myfavorites_path(gnome.favoritization_for(current_user)),
+                     :method => :delete)
+  - else
+    =link_to_remote(image_tag('/images/icon_small_star_inactive.png'),
+                    :update => "favorite_#{dom_id(gnome)}",
+                    :url => members_myfavorites_path(:user_id => current_user.id,
+                                                         :gnome_id => gnome.id),
+                    :method => :post)
+

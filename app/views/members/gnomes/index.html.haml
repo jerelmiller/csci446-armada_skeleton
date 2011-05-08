@@ -23,12 +23,13 @@
         %td
           = image_tag(gnome.photo.url(:thumb), :border => 0)
         %td
+
+          = render :partial => 'members/my_favorites/star.html.haml', :locals => {:gnome => gnome}
 									
           = h link_to "#{gnome.name}", members_gnome_path(gnome)
           by #{h gnome.user} (#{h gnome.cost} ArmadaBucks) #{image_tag('/images/icon_small_star_inactive.png')}
 
-          %div{ :id => "fave#{gnome.id}" }
-            = render :partial => "gnome", :object => gnome
+          = render :partial => 'members/my_favorites/star.html.haml', :locals => {:gnome => gnome}
 
           -# form_remote_for form_path(current_user.id, gnome.id),
             # :url => form_action(current_user.id, gnome.id),

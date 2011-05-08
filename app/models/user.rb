@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
   has_paper_trail
   
   belongs_to :role, :counter_cache => true
-  has_many :gnomes
-  
-  has_many :favoritizations
-  has_many :gnomes, :through => :favoritizations
+
+  has_many :gnomes 
+  has_many :favoritizations, :dependent => :destroy
+  has_many :favorite_gnomes, :through => :favoritizations, :source => :gnome
   
   default_scope :include => :role
   

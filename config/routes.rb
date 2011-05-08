@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :roles
     admin.resources :users
     admin.resources :gnomes
+    admin.resources :favoritizations
     admin.mygnomes 'mygnomes', :controller => "my_gnomes", :action => "index"
     admin.show_content 'show_content', :controller => "gnomes_controller", :action => "show_content"
     admin.myfavorites 'myfavorites', :controller => "my_favorites", :action => "create"
@@ -24,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :members do |members|
     members.resources :users, :only => [:show, :edit, :update]
     members.resources :gnomes
+    members.resources :favoritizations, :only => [:index, :create, :destroy] 
     members.mygnomes 'mygnomes', :controller => "my_gnomes", :action => "index"
     members.myfavorites 'myfavorites', :controller => "my_favorites", :action => "index"
     members.root :controller => 'members', :action => 'index'

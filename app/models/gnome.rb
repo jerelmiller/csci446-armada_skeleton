@@ -1,13 +1,14 @@
 class Gnome < ActiveRecord::Base
   
   validates_presence_of :name
+  validates_presence_of :description
   validates_numericality_of :age
   validates_presence_of :gender
   validates_numericality_of :cost
   
   belongs_to :user
-  has_many :favoritizations
-  has_many :users, :through => :favoritizations
+  has_many :favoritizations, :dependent => :destroy
+  has_many :fans, :through => :favoritizations, :source => :user
   
   cattr_reader :per_page
   @@per_page = 10
@@ -28,4 +29,8 @@ class Gnome < ActiveRecord::Base
     first(:order => 'created_at DESC')
   end
   
+  def favoratism_for(user)
+    self.favoritisms.select {|f| f.user == user}.first
+  end
+
 end
