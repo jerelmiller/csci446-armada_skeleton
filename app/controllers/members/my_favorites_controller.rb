@@ -13,22 +13,22 @@ class Members::MyFavoritesController < Members::MembersController
 	  	if @favoritization.save  	
 	  		format.html {
 				if request.xhr?
-					render :partial => 'members/my_favoites/star', :locals => {:gnome => @favoritization.gnome}
+					render :partial => 'star', :locals => {:gnome => @favoritization.gnome}
 				else
 					flash[:notice] = 'Favoritization sucessfully created'
 				end
 			}
-		else 
-			format.html {
-				if request.xhr?
-					render :partial => 'members/my_favoites/star', :locals => {:gnome => @favoritization.gnome}
-				else
-					flash[:error] = "Sorry, couldn't create that favorite"
-					redirect_to_members_gnome_path(@favoritization.gnome)
-				end
+		  else 
+			  format.html {
+				  if request.xhr?
+					  render :partial => 'members/my_favoites/star', :locals => {:gnome => @favoritization.gnome}
+			  	else
+					  flash[:error] = "Sorry, couldn't create that favorite"
+					  redirect_to_members_gnome_path(@favoritization.gnome)
+			  	end
 			}
 			format.xml { render :xml => :favoritization.errors, :status => :unprocessable_entitity }
-		end	  		
+		  end	  		
 	  end
 	end																						  
 	
