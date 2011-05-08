@@ -25,7 +25,8 @@
   %table
     - @gnomes.each do |gnome|
       %tr
-        %td image
+        %td 
+           = image_tag(gnome.photo.url(:thumb), :border => 0)
         %td.middle-stuff
           = h link_to "#{gnome.name}", admin_gnome_path(gnome)
           by #{h gnome.user} (#{h gnome.cost} ArmadaBucks) #{image_tag('/images/icon_small_star_inactive.png')}
