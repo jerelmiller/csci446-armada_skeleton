@@ -5,8 +5,8 @@ class GnomesController < ApplicationController
     @num_gnomes = Gnome.count
     
     respond_to do |format|
-      format.html
-      format.xml  { render :xml => @gnomes }
+      format.html { render :html => @gnomes }
+      format.xml  { render :xml => Gnome.all }
     end
   end
 
