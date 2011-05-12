@@ -1,12 +1,16 @@
 class GnomesController < ApplicationController
 
   def index
-    @gnomes = Gnome.paginate(:page => params[:page], :order => 'created_at DESC')
+    if request.format.xml?
+      @gnomes = Gnome.all(:order => 'created_at DESC')
+    else
+      @gnomes = Gnome.paginate(:page => params[:page], :order => 'created_at DESC')
+    end
     @num_gnomes = Gnome.count
     
     respond_to do |format|
       format.html { render :html => @gnomes }
-      format.xml  { render :xml => Gnome.all }
+      format.xml  { render :xml => @gnomes }
     end
   end
 
