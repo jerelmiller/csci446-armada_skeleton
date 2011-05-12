@@ -14,7 +14,7 @@ class GnomesController < ApplicationController
     @gnome = Gnome.find(params[:id])
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @gnomes }
+      format.xml  { render :xml => @gnome }
     end
   end
 
